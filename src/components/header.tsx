@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Header = () => {
   return (
@@ -10,12 +11,16 @@ const Header = () => {
         ClicknMeet
       </Link>
       <div className="flex justify-end gap-4">
-        <Button asChild variant="outline">
-          <Link href="/create">Get Started</Link>
-        </Button>
-        <Button asChild variant="default">
-          <Link href="/login">Login</Link>
-        </Button>
+        <SignedIn>
+          <Button asChild variant="outline">
+            <Link href="/create">Get Started</Link>
+          </Button>
+        </SignedIn>
+        <SignedOut>
+          <Button asChild variant="default">
+            <Link href="/login">Login</Link>
+          </Button>
+        </SignedOut>
         <ModeToggle />
       </div>
     </nav>
