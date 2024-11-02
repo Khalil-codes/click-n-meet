@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 const Header = () => {
   return (
@@ -17,9 +17,11 @@ const Header = () => {
           </Button>
         </SignedIn>
         <SignedOut>
-          <Button asChild variant="default">
-            <Link href="/login">Login</Link>
-          </Button>
+          <SignInButton fallbackRedirectUrl={"/dashboard"}>
+            <Button asChild variant="default">
+              <Link href="/login">Login</Link>
+            </Button>
+          </SignInButton>
         </SignedOut>
         <ModeToggle />
       </div>
