@@ -2,7 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import UserMenu from "./user-menu";
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
           <Button asChild variant="outline">
             <Link href="/create">Get Started</Link>
           </Button>
-          <UserButton />
+          <UserMenu />
         </SignedIn>
         <SignedOut>
           <SignInButton forceRedirectUrl={"/dashboard"}>
