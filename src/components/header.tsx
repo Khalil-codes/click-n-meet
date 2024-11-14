@@ -7,7 +7,7 @@ import UserMenu from "./user-menu";
 
 const Header = () => {
   return (
-    <nav className="container sticky top-0 mx-auto flex w-full justify-between border-b border-b-border px-4 py-4 backdrop-blur-md">
+    <nav className="container sticky top-0 z-10 mx-auto flex w-full justify-between border-b border-b-border px-4 py-4 backdrop-blur-md">
       <Link href="/" className="font-giest-mono text-2xl font-bold">
         ClicknMeet
       </Link>
